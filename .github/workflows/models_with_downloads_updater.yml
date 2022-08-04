@@ -7,7 +7,7 @@ on: [workflow_dispatch]
   # run it once a day
   #schedule:
   #  - cron: "1 1 * * *"
-    
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -59,16 +59,16 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
-      
+
       - name: Generate data
         run: |
-          source("R/job.R")
-        shell: Rscript {0} 
-        
+          source("data-raw/models_with_downloads.R")
+        shell: Rscript {0}
+
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add --all
           git commit -am "update downloads data"
-          git push 
+          git push

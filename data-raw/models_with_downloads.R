@@ -1,4 +1,5 @@
 ## code to prepare `models_with_downloads`
+library(huggingfaceR)
 
 # Grab all of the models' data
 all_models <- hf_search_models()
