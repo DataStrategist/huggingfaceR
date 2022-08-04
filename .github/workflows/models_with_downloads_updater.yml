@@ -40,6 +40,7 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
+          install.packages('devtools')
           install.packages('sessioninfo')
           install.packages("reticulate")
           library(reticulate)
@@ -58,6 +59,7 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
+          devtools::build()
         shell: Rscript {0}
 
       - name: Generate data

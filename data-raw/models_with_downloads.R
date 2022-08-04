@@ -1,5 +1,9 @@
 ## code to prepare `models_with_downloads`
 library(huggingfaceR)
+library(tibble)
+library(dplyr)
+library(purrr)
+library(usethis)
 
 # Grab all of the models' data
 all_models <- hf_search_models()
@@ -34,4 +38,4 @@ models_with_downloads <- all_models %>%
     private = .x$private
   ))
 
-usethis::use_data(models_with_downloads, overwrite = TRUE)
+use_data(models_with_downloads, overwrite = TRUE)
