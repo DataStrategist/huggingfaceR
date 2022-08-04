@@ -59,7 +59,7 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          devtools::build()
+          devtools::install(build_vignettes = FALSE, dependencies = FALSE)
         shell: Rscript {0}
 
       - name: Generate data
